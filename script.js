@@ -1,5 +1,5 @@
 function threeSum(arr, target) {
-	// write your code here
+
 	// let closest = Number.MAX_SAFE_INTEGER;
 	// // arr=arr.sort();
 	// for (let i = 0; i < arr.length - 2; i++) {
@@ -28,30 +28,33 @@ function threeSum(arr, target) {
 	// }
 
 	// O(n^2)------------
+
+	//1- sorting
 	arr.sort();
-      let closestSum = Number.MAX_SAFE_INTEGER;
-	for(let i=0;i<arr.length-2;i++){
+    let closestSum = Number.MAX_SAFE_INTEGER;        // maximum no.
+	
+	for(let i=0; i<arr.length-2; i++){
 		let j=i+1;
 		let k=arr.length-1;
 
 		while(j<k){
-		let sum=arr[i]+arr[j]+arr[k];
-		if(Math.abs(target-sum)<Math.abs(target-closestSum)){
-         closestSum=sum;
-		}
-		if(sum<target){
-			j++;
-		}
-		else if(sum>target){
-			k--;
-		}else{
-			return closestSum;
-		}
+			let sum=arr[i]+arr[j]+arr[k];
+			if(Math.abs(target-sum) < Math.abs(target-closestSum)){
+		         closestSum=sum;
+			}
+			if(sum<target){
+				j++;
+			}
+			else if(sum>target){
+				k--;
+			}
+			else{
+				return closestSum;
+			}
 		}
 	}
-	// console.log(closestSum);
+
 	return closestSum;
 }
-// threeSum([-1,2,1,-4],1);
-// threeSum([0,1,2],1);
+
 module.exports = threeSum;
